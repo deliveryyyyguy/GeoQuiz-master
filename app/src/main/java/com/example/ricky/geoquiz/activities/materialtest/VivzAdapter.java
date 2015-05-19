@@ -30,7 +30,7 @@ public class VivzAdapter extends RecyclerView.Adapter <VivzAdapter.MyViewHolder>
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.custom_row, parent, false);
+        View view = inflater.inflate(R.layout.nav_drawer_custom_cards, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }

@@ -13,9 +13,9 @@
     <string name="search_movies">Search Movies</string>
 
     <string-array name="tabs">
-        <item name="Contour">TAB 1</item>
-        <item name="Hi">TAB 2</item>
-        <item name="Work">TAB 3</item>
+        <item name="Search">TAB 1</item>
+        <item name="BoxOffice">TAB 2</item>
+        <item name="Upcoming">TAB 3</item>
 
     </string-array>
 

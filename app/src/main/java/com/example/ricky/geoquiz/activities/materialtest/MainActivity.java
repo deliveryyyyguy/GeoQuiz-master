@@ -63,7 +63,6 @@ public class MainActivity extends ActionBarActivity implements MaterialTabListen
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -106,8 +105,6 @@ public class MainActivity extends ActionBarActivity implements MaterialTabListen
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             return inflater.inflate(R.layout.FragmentSearch, container, false);
-
-
         }
     }*/
 
@@ -117,8 +114,6 @@ public class MainActivity extends ActionBarActivity implements MaterialTabListen
                 R.drawable.ic_action_personal,};
         //ic_action_articles
         //String[] tabText = getResources().getStringArray(R.array.tabs);
-
-
 
         FragmentManager fragmentManager;
 
@@ -150,13 +145,10 @@ public class MainActivity extends ActionBarActivity implements MaterialTabListen
             return fragment;
 
         }
-
         @Override
         public int getCount() {
             return TAB_COUNT;
-
         }
-
         @Override
         public CharSequence getPageTitle(int position) {
             return getResources().getStringArray(R.array.tabs)[position];
