@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.ricky.geoquiz.R;
 
@@ -105,23 +107,34 @@ public class NavigationDrawerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //below i am fucking with the layout
-        View layout = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
-        recyclerView = (RecyclerView) layout.findViewById(R.id.drawerList);
+        return inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+    }
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+        recyclerView = (RecyclerView) view.findViewById(R.id.drawerList);
         adapter = new VivzAdapter (getActivity(), getData());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView,new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-
+                //Toast.makeText(getActivity() ,"onClick"+position,Toast.LENGTH_SHORT).show();
+                //Intent intent = new Intent(startActivity(intent) this MainActivity.class);
+                //startActivity(intent);
+                //where the magic of the nav drawer clicks is happening
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+                //((Redeem) getActivity()).onDrawerItmClicked(position);
+                ((MainActivity)getActivity()).onDrawerItemClicked(position);
             }
 
             @Override
             public void onLongClick(View view, int position) {
+                Toast.makeText(getActivity() ,"StopClicking"+position,Toast.LENGTH_SHORT).show();
+
 
             }
         }));
-        return layout;
     }
 
     public void setUp(int fragmentId, DrawerLayout drawerLayout, final Toolbar toolbar) {
@@ -152,14 +165,14 @@ public class NavigationDrawerFragment extends Fragment {
                 toolbar.setAlpha(1 - slideOffset / 2);
             }
         };
-        if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
-            mDrawerLayout.openDrawer(containerView);
-        }
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerLayout.post(new Runnable() {
             @Override
             public void run() {
                 mDrawerToggle.syncState();
+                if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
+                    mDrawerLayout.openDrawer(containerView);
+                }
             }
         });
 

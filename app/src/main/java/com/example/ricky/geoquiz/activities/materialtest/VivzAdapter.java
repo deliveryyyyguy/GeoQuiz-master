@@ -64,16 +64,8 @@ public class VivzAdapter extends RecyclerView.Adapter <VivzAdapter.MyViewHolder>
             //title.setOnClickListener(this);
         }
 
-    /*    @Override
-        public void onClick(View v) {
-            //delete(getPosition());
 
-            //context.startActivity(new Intent(context, SubActivity.class));
-
-            if (clickListener != null){
-                clickListener.itemClicked(v, getPosition());
-            }
-        }*/
     }
+
 
 }

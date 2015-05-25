@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.ricky.geoquiz.activities.materialtest.MainActivity"
+            android:name=".activities.materialtest.MainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,9 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.example.ricky.geoquiz.activities.materialtest.SubActivity"
+            android:name=".activities.materialtest.SubActivity"
             android:label="title_activity_sub" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -26,7 +25,7 @@
         </activity>
         <activity android:name=".ScrollViewActivity" />
         <activity
-            android:name="com.example.ricky.geoquiz.activities.materialtest.ActivitySlidingTabLayout"
+            android:name=".activities.materialtest.ActivitySlidingTabLayout"
             android:label="@string/title_activity_activity_using_tab_library" >
         </activity>
     </application>
