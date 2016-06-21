@@ -41,7 +41,6 @@ public class VivzAdapter extends RecyclerView.Adapter <VivzAdapter.MyViewHolder>
         holder.title.setText(current.title);
         holder.icon.setImageResource(current.iconId);
 
-
     }
 
     @Override
@@ -49,10 +48,7 @@ public class VivzAdapter extends RecyclerView.Adapter <VivzAdapter.MyViewHolder>
         return data.size();
     }
 
-    public void delete(int position){
-        data.remove(position);
-        notifyItemRemoved(position);
-    }
+
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;

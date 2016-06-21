@@ -80,7 +80,6 @@ public class NavigationDrawerFragment extends Fragment {
         return data;
     }
 
-
     public static void saveToPreferences(Context context, String preferenceName, String preferenceValue) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -111,7 +110,6 @@ public class NavigationDrawerFragment extends Fragment {
     }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-
         recyclerView = (RecyclerView) view.findViewById(R.id.drawerList);
         adapter = new VivzAdapter (getActivity(), getData());
         recyclerView.setAdapter(adapter);
@@ -125,7 +123,11 @@ public class NavigationDrawerFragment extends Fragment {
                 //where the magic of the nav drawer clicks is happening
                 mDrawerLayout.closeDrawer(GravityCompat.START);
                 //((Redeem) getActivity()).onDrawerItmClicked(position);
-                ((MainActivity)getActivity()).onDrawerItemClicked(position);
+                //((MainActivity)getActivity()).onDrawerItemClicked(position);
+                ((MainActivity)getActivity()).onDrawerItemClicked(view, position);
+                // maybe i can try do to this
+                //((MainActivity)getActivity()).onDrawerItemClicked(position - 4);
+
             }
 
             @Override
@@ -135,6 +137,10 @@ public class NavigationDrawerFragment extends Fragment {
 
             }
         }));
+    }
+
+    public interface FragmentDrawerListener {
+        public void onDrawerItemClicked(View view, int position);
     }
 
     public void setUp(int fragmentId, DrawerLayout drawerLayout, final Toolbar toolbar) {
@@ -165,6 +171,8 @@ public class NavigationDrawerFragment extends Fragment {
                 toolbar.setAlpha(1 - slideOffset / 2);
             }
         };
+
+        //below has something to do with the listener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerLayout.post(new Runnable() {
             @Override

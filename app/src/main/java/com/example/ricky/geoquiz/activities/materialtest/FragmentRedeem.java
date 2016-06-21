@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import com.example.ricky.geoquiz.R;
 
 
-public class FragmentSale extends Fragment {
+public class FragmentRedeem extends Fragment {
 
-    public FragmentSale() {
+    public FragmentRedeem() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class FragmentSale extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_sale, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_redeem, container, false);
 
 
         // Inflate the layout for this fragment
